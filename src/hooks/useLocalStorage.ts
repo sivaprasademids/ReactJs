@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // Custom Hook for localStorage
-const useLocalStorage = (key, initialValue) => {
+const useLocalStorage = (key: any, initialValue: any) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
