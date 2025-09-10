@@ -18,6 +18,7 @@ export type Entry = {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>("Time Entries");
+ // const [arrayLength, setArrayLength] = useState(0);
 
   // Typing for handleTabChange: accepts string and returns void
   const handleTabChange = (label: string): void => {
@@ -34,8 +35,6 @@ export default function App() {
     { employee: "Mason Ramirez", project: "Project C", task: "Task 1", duration: 2, billable: false, data: "55%" },
   ];
 
-  // Save mock entries initially — consider moving this elsewhere to avoid overwriting on every render
-  localStorage.setItem("timeEntries", JSON.stringify(mockEntries));
 
   // Custom hook for localStorage with entries typed as Entry[]
   const [savedEntries, setSavedEntries] = useLocalStorage("timeEntries", []);
@@ -43,6 +42,10 @@ export default function App() {
   // useReducer with typed state (Entry[]) and action typed in reducer (not shown here, but assumed typed)
   const [entries, dispatch] = useReducer(entriesReducer, savedEntries);
 
+   // Save mock entries initially — consider moving this elsewhere to avoid overwriting on every render
+  if(!savedEntries.length) {
+    localStorage.setItem("timeEntries", JSON.stringify(mockEntries));
+  }
   useEffect(() => {
     setSavedEntries(entries);
   }, [entries, setSavedEntries]);
