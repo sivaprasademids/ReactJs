@@ -5,20 +5,11 @@ import BillableChart from "./components/BillableChart";
 import useLocalStorage from "./hooks/useLocalStorage";
 import entriesReducer from "./reducer/entriesReducer";
 import Header from "./components/Header";
+import Entry from "./modals/entry.modal";
 
-// Define the Entry type consistent with other components
-export type Entry = {
-  employee: string;
-  project: string;
-  task: string;
-  duration: number;
-  billable: boolean;
-  data: string;
-};
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>("Time Entries");
- // const [arrayLength, setArrayLength] = useState(0);
 
   // Typing for handleTabChange: accepts string and returns void
   const handleTabChange = (label: string): void => {
@@ -43,9 +34,9 @@ export default function App() {
   const [entries, dispatch] = useReducer(entriesReducer, savedEntries);
 
    // Save mock entries initially — consider moving this elsewhere to avoid overwriting on every render
-  if(!savedEntries.length) {
+  // if(!savedEntries.length) {
     localStorage.setItem("timeEntries", JSON.stringify(mockEntries));
-  }
+  // }
   useEffect(() => {
     setSavedEntries(entries);
   }, [entries, setSavedEntries]);

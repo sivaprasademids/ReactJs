@@ -1,14 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
+import Entry from "../modals/entry.modal";
 
-// Define the type for a new entry
-type Entry = {
-  employee: string;
-  project: string;
-  task: string;
-  duration: number;
-  billable: boolean;
-  data: string;
-};
 
 // Define props for the EntryForm component
 type EntryFormProps = {

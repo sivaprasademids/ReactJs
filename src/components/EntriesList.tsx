@@ -1,14 +1,6 @@
 import React from 'react';
+import Entry from '../modals/entry.modal';
 
-// Define the shape of an entry
-type Entry = {
-  employee: string;
-  project: string;
-  task: string;
-  duration: number;
-  billable: boolean;
-  data: string;
-};
 
 // Define the props for EntriesList
 type EntriesListProps = {

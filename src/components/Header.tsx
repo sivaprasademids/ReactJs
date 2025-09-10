@@ -11,8 +11,8 @@ const Header: React.FC<HeaderProps> = ({ onTabChange }) => {
 
   return (
     <>
-      <header className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-        <div className="flex items-center mb-4 md:mb-0">
+      <header className="flex flex-col mb-4">
+        <div className="flex items-center mb-4">
           <div className="bg-gray-200 p-2 rounded-lg mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -36,8 +36,7 @@ const Header: React.FC<HeaderProps> = ({ onTabChange }) => {
             </span>
           </div>
         </div>
-        <br />
-        <nav className="flex items-center space-x-6 text-sm">
+        <nav className="flex items-center space-x-6">
           {[
             "Dashboard",
             "Time Entries",
