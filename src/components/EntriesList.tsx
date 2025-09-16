@@ -1,7 +1,15 @@
 import React from 'react';
+import Entry from '../modals/entry.modal';
+
+
+// Define the props for EntriesList
+type EntriesListProps = {
+  entries: Entry[];
+  onRemove: (index: number) => void;
+};
 
 // Entries List Component
-const EntriesList = ({ entries, onRemove })=> {
+const EntriesList: React.FC<EntriesListProps> = ({ entries, onRemove }) => {
   return (
     <div className="mt-4 min-h-[200px] max-h-[300px] overflow-auto border rounded">
       <table className="w-full border table-auto">
@@ -39,6 +47,6 @@ const EntriesList = ({ entries, onRemove })=> {
       </table>
     </div>
   );
-}
+};
 
-export default EntriesList
+export default EntriesList;
